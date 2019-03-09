@@ -124,16 +124,13 @@ namespace VigenereCipher
                     results.Add(Translation(local, data.Length));
                 }
             });
-
         }
 
         public byte VigenereTranslate(byte c, byte k)
         {
             //REAL MODULO
             int x = c - k;
-			int shift = x % 26 + 26;
-			byte val =  shift % 26;
-            return val;
+            return (byte)(((x % 26) + 26) % 26);
         }
 
         public string Translation(byte[] array, int length)
