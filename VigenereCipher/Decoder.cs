@@ -131,7 +131,9 @@ namespace VigenereCipher
         {
             //REAL MODULO
             int x = c - k;
-            return (byte)((x % 26 + 26) % 26);
+			int shift = x % 26 + 26;
+			byte val =  shift % 26;
+            return val;
         }
 
         public string Translation(byte[] array, int length)
